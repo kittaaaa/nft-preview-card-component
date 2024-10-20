@@ -1,0 +1,219 @@
+:root {
+    --primary-soft-blue: hsl(215, 51%, 70%); /*for text*/
+    --primary-cyan: hsl(178, 100%, 50%);
+
+
+    --main-bg: hsl(217, 54%, 11%);
+    --card-bg: hsl(216, 50%, 16%);
+    --line: hsl(215, 32%, 27%);
+    --text: hsl(0, 0%, 100%);
+
+    /* flow-space */
+    --flow-space-1: 1rem;
+    --flow-space-mid: 1.5rem;
+    --flow-space-2: 2rem;
+
+}
+/* Resets */
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+a, a:active, a:focus {
+    text-decoration: none;
+}
+img, picture, svg {
+    display: block;
+    width: 100%;
+}
+button {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    line-height: 1.5;
+    font-family: sans-serif;
+    color: var(--primary-soft-blue);
+}
+main {
+    width: inherit;
+    min-height: inherit;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background-color: var(--main-bg);
+}
+
+.card {
+    width: 90%;
+    max-width: 450px;
+    background-color: var(--card-bg);
+}
+.card__content__title {
+    color: var(--text);
+}
+.card__content__text {
+    font-size: 1.1em;
+}
+.wraper > * + * {
+    margin-top: 1rem;
+}
+
+.hero-img-wraper{
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+
+
+}
+.hero-img-wraper::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    border-radius: 10px;
+    opacity: 50%;
+    z-index: -1;
+    transition: all .5s;
+    transform: translateX(-100%);
+    background-color: var(--primary-cyan);
+}
+.hero-img-wraper:hover::before {
+    transform: translateX(0);
+    z-index: 1;
+    
+}
+
+.hero-img-wraper::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    top: 0;
+    z-index: -1;
+    position: absolute;
+    border-radius: 10px;
+    transition: all .5s;
+    transform: translateX(-100%);
+    background-image: url("./images/icon-view.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.hero-img-wraper:hover::after{
+    z-index: 1;
+    transform: translateX(0);
+}
+  
+.card__price {
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid var(--primary-cyan); */
+}
+/* .card__price::after {
+    
+    content: "";
+    width: 100%;
+    height: 1px;
+    bottom: -15px;
+    display: block;
+    position: absolute;
+    background-color: var(--line);
+
+} */
+.card__price__eth {
+    color: var(--primary-cyan);
+    margin-left: 1rem;
+    position: relative;
+    font-weight: bold;
+}
+
+.card__price__eth::before {
+    content: "";
+    width: 13px;
+    height: 20px;
+    left: -15px;
+    top: 3px;
+    position: absolute;
+    /* outline: 1px solid cadetblue; */
+    display: inline-block;
+    background-image: url("./images/icon-ethereum.svg");
+    background-repeat: no-repeat;
+    
+}
+.card__price__days-left {
+    position: relative;
+}
+.card__price__days-left::before {
+    content: "";
+    width: 17px;
+    height: 17px;
+    left: -20px;
+    top: 5px;
+    position: absolute;
+    /* outline: 1px solid cadetblue; */
+    display: inline-block;
+    background-image: url("./images/icon-clock.svg");
+    background-repeat: no-repeat;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    /* border: 1px solid cadetblue; */
+    gap: 1rem;
+    margin-top: 1rem;
+
+}
+.author picture {
+    display: inline-block;
+    width: 50px;
+}
+.author__img {
+    border: 2px solid white;
+    border-radius: 50%;
+}
+.author__text {
+    display: inline-block;
+    width: 100%;
+    flex-grow: 1;
+}
+.author__text__name {
+    text-transform: capitalize;
+    color: white;
+}
+.author__text__name:hover, .card__content__title:hover{
+    cursor: pointer;
+    color: var(--primary-cyan);
+}
+.line {
+    color: var(--line);
+}
+/* utilities */
+
+/* spacing */
+.p-2 {
+    padding: 2rem;
+}
+.m-top-1 {
+    margin-top: 1rem;
+}
+
+.border-r-10p {
+    border-radius: 10px;
+}
